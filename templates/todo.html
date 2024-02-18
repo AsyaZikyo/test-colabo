@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<head>
+		<title>todo.html</title>
+	</head>
+	
+	<body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">ToDoAPP</a>
+            </div>
+        </nav>
+
+        <main cass="container">
+            <form action="/add" method="POST">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card blue-grey darken-1">
+
+                            <div class="card-content white-text">
+                                <span class="card-title">Plese Add...</span>
+                                <input type="text" name="todo" placeholder="input todo!!" class="validate"/>
+                            </div>
+
+                            <div class="card-action">
+                                <input type="submit" value="Add" class="waves-effect waves-light btn-large"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            {% for d in data %}
+                <div class="card-panel">
+                    {{d.id}} : {{d.todo}}
+                    <a href="/del_todo/{{ d.id }}">[delete this Task]</a>
+                </div>
+            {% endfor %}
+        </main>
+
+
+
+
+
+	</body>
+</html>
